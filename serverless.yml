@@ -1,0 +1,42 @@
+service: serverless-example
+
+provider:
+  name: aws
+  stage: localhost
+  runtime: nodejs14.x
+  region: ap-northeast-1
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline # serverless-offline needs to be last in the list
+
+custom:
+  dynamodb:
+    stages:
+      - ${self:provider.stage}
+    start:
+      port: 8000
+      migrate: true # After starting dynamodb local, run dynamodb migrations defined in resources
+
+functions:
+  map-query-api:
+    handler: dist/apps/map-query-api/main.handler
+    events:
+      - httpApi:
+          method: ANY
+          path: /lambda/map-query-api/{proxy+}
+
+resources:
+  Resources:
+    MapTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        TableName: local-map
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        BillingMode: PAY_PER_REQUEST
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+

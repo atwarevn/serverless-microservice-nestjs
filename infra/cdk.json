@@ -1,0 +1,4 @@
+{
+  "extends": "../cdk.json",
+  "app": "npx ts-node --prefer-ts-exts infra/bin/infra.ts"
+}

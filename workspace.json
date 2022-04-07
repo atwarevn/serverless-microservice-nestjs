@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "projects": {
+    "infra-cdk": "libs/infra/cdk",
+    "map-command-api": "apps/map-command-api",
+    "map-core-domain": "libs/map/core/domain",
+    "map-core-repositories": "libs/map/core/repositories",
+    "map-core-services": "libs/map/core/services",
+    "map-infrastructure": "libs/map/infrastructure",
+    "map-query-api": "apps/map-query-api",
+    "map-services": "libs/map/services",
+    "map-utils": "libs/map/utils",
+    "shared-database-dynamodb": "libs/shared/database/dynamodb",
+    "shared-environment": "libs/shared/environment",
+    "shared-utils": "libs/shared/utils"
+  }
+}

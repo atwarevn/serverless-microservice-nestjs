@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/infra/cdk": ["libs/infra/cdk/src/index.ts"],
+      "@src/map/core/domain": ["libs/map/core/domain/src/index.ts"],
+      "@src/map/core/repositories": ["libs/map/core/repositories/src/index.ts"],
+      "@src/map/core/services": ["libs/map/core/services/src/index.ts"],
+      "@src/map/infrastructure": ["libs/map/infrastructure/src/index.ts"],
+      "@src/map/services": ["libs/map/services/src/index.ts"],
+      "@src/map/utils": ["libs/map/utils/src/index.ts"],
+      "@src/shared/database/dynamodb": [
+        "libs/shared/database/dynamodb/src/index.ts"
+      ],
+      "@src/shared/environment": ["libs/shared/environment/src/index.ts"],
+      "@src/shared/utils": ["libs/shared/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

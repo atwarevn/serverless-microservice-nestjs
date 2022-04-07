@@ -1,0 +1,15 @@
+{
+  "root": "libs/map/core/repositories",
+  "sourceRoot": "libs/map/core/repositories/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/map/core/repositories/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

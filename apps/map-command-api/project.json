@@ -1,0 +1,65 @@
+{
+  "root": "apps/map-command-api",
+  "sourceRoot": "apps/map-command-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/map-command-api",
+        "main": "apps/map-command-api/src/main.ts",
+        "tsConfig": "apps/map-command-api/tsconfig.app.json",
+        "assets": [
+          "apps/map-command-api/src/assets"
+        ]
+      },
+      "configurations": {
+        "dev": {
+          "optimization": false,
+          "extractLicenses": false,
+          "inspect": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/map-command-api/src/environments/environment.ts",
+              "with": "apps/map-command-api/src/environments/environment.dev.ts"
+            }
+          ]
+        },
+        "prd": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/map-command-api/src/environments/environment.ts",
+              "with": "apps/map-command-api/src/environments/environment.prd.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "map-command-api:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/map-command-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/map-command-api"],
+      "options": {
+        "jestConfig": "apps/map-command-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
